@@ -22,7 +22,6 @@ from langsmith import traceable  # Tool for tracing LangChain runs
 
 
 # ---------------------- Environment Setup & OpenAI API Initialization -----------------------
-os.environ["PATH"] += os.pathsep + r"C:\\Users\\Hano\\Desktop\\ffmpeg\\bin"  # Add FFmpeg path to environment
 load_dotenv()  # Load .env variables
 openai_api_key = os.getenv("OPENAI_API_KEY")  # Fetch OpenAI API key
 
