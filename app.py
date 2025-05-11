@@ -22,6 +22,7 @@ from langsmith import traceable  # Tool for tracing LangChain runs
 
 
 # ---------------------- Environment Setup & OpenAI API Initialization -----------------------
+os.environ["PATH"] += os.pathsep + r"C:\Users\HUAWEI\Downloads\ffmpeg-7.1.1-essentials_build\ffmpeg\ffmpeg-7.1.1-essentials_build\bin\ffmpeg.exe"  # Add FFmpeg path to environment
 load_dotenv()  # Load .env variables
 openai_api_key = os.getenv("OPENAI_API_KEY")  # Fetch OpenAI API key
 
@@ -112,11 +113,19 @@ def extract_and_clean_summary(summary_html):
 # ---------------------- YouTube Downloader using yt_dlp ----------------------
 def download_youtube_video(url, output_path="downloads/"):
     os.makedirs(output_path, exist_ok=True)
+
+    PROXY_URL = os.getenv("PROXY_URL")
+    if not PROXY_URL:
+        st.error("❌ Missing PROXY_URL environment variable.")
+        return None
+
+    
     ydl_opts = {
         'format': 'mp4',
         'outtmpl': os.path.join(output_path, '%(id)s.%(ext)s'),
         'quiet': True,
-        'ignoreerrors': True
+        'ignoreerrors': True,
+        'proxy': PROXY_URL
     }
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
