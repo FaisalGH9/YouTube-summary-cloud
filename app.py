@@ -28,7 +28,7 @@ openai_api_key = os.getenv("OPENAI_API_KEY")  # Fetch OpenAI API key
 
 # ---------------------- Streamlit App Configuration -------------------------
 st.set_page_config(page_title="🎮 Video Analyzer", layout="wide")  # Configure page title and layout
-st.title("Skillify")  # App main title
+st.title("KHOLASA")  # App main title
 st.markdown('<div style="font-size:16px; color:gray;">Summarize, translate, and interact with YouTube videos using AI</div>', unsafe_allow_html=True)
 
 
