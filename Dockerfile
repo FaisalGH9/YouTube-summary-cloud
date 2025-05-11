@@ -24,4 +24,4 @@ RUN pip install -r requirements.txt
 EXPOSE 8080
 
 # أمر التشغيل: استخدم المتغير PORT الذي توفره Google Cloud Run تلقائياً
-CMD ["streamlit", "run", "app.py", "--server.port=${PORT}", "--server.address=0.0.0.0"]
+CMD streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
